@@ -4,7 +4,7 @@ Welcome to the Campus Student Welfare Website! 🌟 This platform is designed to
 
 💻 Getting Started
 
-Run the project:
+Demo link: https://cliff9509.github.io/comrade-life/Homepage.html
 
 📂 Repository Structure
 
