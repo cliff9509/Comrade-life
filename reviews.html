@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="review.css">
+</head>
+<body>
+
+    <div class="review-container">
+        <h2>Customer Reviews</h2>
+
+        <!-- Review Form -->
+        <div class="review-form">
+            <h3>Leave a Review</h3>
+            <div class="star-rating">
+                <span class="star" onclick="setRating(1)">★</span>
+                <span class="star" onclick="setRating(2)">★</span>
+                <span class="star" onclick="setRating(3)">★</span>
+                <span class="star" onclick="setRating(4)">★</span>
+                <span class="star" onclick="setRating(5)">★</span>
+            </div>
+            <textarea id="reviewText" placeholder="Write your review..."></textarea>
+            <button onclick="submitReview()">Submit</button>
+        </div>
+
+        <!-- Reviews Display -->
+        <div class="reviews-list">
+            <h3>Recent Reviews</h3>
+            <div id="reviewsContainer">
+                <p>No reviews yet.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedRating = 0;
+
+        function setRating(rating) {
+            selectedRating = rating;
+            let stars = document.querySelectorAll(".star");
+            stars.forEach((star, index) => {
+                star.style.color = index < rating ? "#f39c12" : "#ccc";
+            });
+        }
+
+        function submitReview() {
+            let reviewText = document.getElementById("reviewText").value.trim();
+            if (selectedRating === 0 || reviewText === "") {
+                alert("Please give a rating and write a review!");
+                return;
+            }
+
+            let reviewsContainer = document.getElementById("reviewsContainer");
+            let newReview = document.createElement("div");
+            newReview.classList.add("review");
+            newReview.innerHTML = `
+                <p><strong>⭐ ${selectedRating} Stars</strong></p>
+                <p>${reviewText}</p>
+                <hr>
+            `;
+
+            reviewsContainer.appendChild(newReview);
+            document.getElementById("reviewText").value = "";
+            setRating(0);
+        }
+    </script>
+
+</body>
+</html>

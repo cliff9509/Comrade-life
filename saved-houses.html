@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Houses</title>
+    <link rel="stylesheet" href="saved-houses.css">
+</head>
+<body>
+
+    <div class="saved-houses-container">
+        <h2>Saved Houses</h2>
+
+        <div id="housesList">
+            <!-- Sample saved houses -->
+            <div class="house-card">
+                <img src="house.jpg" alt="Greenview Apartments">
+                <h3>Greenview Apartments</h3>
+                <p>Location: Downtown</p>
+                <p>Price: Ksh3000/month</p>
+                <p>Status: Available</p>
+                <button onclick="removeHouse(this)">Remove</button>
+            </div>
+
+            <div class="house-card">
+                <img src="house.jpg" alt="Sunset Villas">
+                <h3>Sunset Villas</h3>
+                <p>Location: Beachside</p>
+                <p>Price: Ksh3000/month</p>
+                <p>Status: Rented</p>
+                <button onclick="removeHouse(this)">Remove</button>
+            </div>
+
+            <div class="house-card">
+                <img src="house.jpg" alt="Oceanview Condo">
+                <h3>Oceanview Condo</h3>
+                <p>Location: Seaview Street</p>
+                <p>Price: Ksh1500/month</p>
+                <p>Status: Available</p>
+                <button onclick="removeHouse(this)">Remove</button>
+            </div>
+            <div class="house-card">
+                <img src="house.jpg" alt="Oceanview Condo">
+                <h3>Oceanview Condo</h3>
+                <p>Location: Seaview Street</p>
+                <p>Price: Ksh1500/month</p>
+                <p>Status: Available</p>
+                <button onclick="removeHouse(this)">Remove</button>
+            </div>
+            <div class="house-card">
+                <img src="house.jpg" alt="Oceanview Condo">
+                <h3>Oceanview Condo</h3>
+                <p>Location: Seaview Street</p>
+                <p>Price: Ksh1500/month</p>
+                <p>Status: Available</p>
+                <button onclick="removeHouse(this)">Remove</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function removeHouse(button) {
+            let houseCard = button.parentElement;
+            houseCard.remove();
+        }
+    </script>
+
+</body>
+</html>

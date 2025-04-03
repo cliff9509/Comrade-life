@@ -1,0 +1,156 @@
+*{
+    font-family: sans-serif;
+    text-decoration: none;
+}
+header {
+    background-color: #afaaee;
+    padding: 2rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: wavy;
+    color: #300df7;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-left: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #c9dfcb;
+}
+nav a:hover{
+    color: #d41717;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color:rgb(179, 161, 179);
+}
+
+.header{
+    background-color: rgb(182, 113, 182);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.form{
+    background-color:rgb(179, 161, 179);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-family: sans-serif;
+}
+input{
+    padding: 7px;
+    border: 4px blue;
+    border-radius: 10px;
+    background-color: lightblue;
+    box-sizing: border-box; 
+}
+input:hover {
+    box-shadow: 10px 2px 5px grey;
+}
+
+input:focus{
+    background-color:rgb(11, 85, 114);
+}
+
+.footer{
+    background-color: rgb(43, 7, 43);
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+/* Container for the cards */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+/* Individual card styling */
+.card1 {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    box-sizing: border-box;
+    background-image: url("call-center-8754751_1280.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.card2{
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    box-sizing: border-box;
+    background-image:url("pexels-maksgelatin-5605061.jpg");
+    background-position: center;
+    background-size: cover;
+}
+.card3 {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    box-sizing: border-box;
+    background-position: center;
+    background-size: cover;
+    background-image: url("icons.jpg");
+}
+.card4 {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 300px;
+    box-sizing: border-box;
+    background-image: url("locationmarker.jpg");
+    background-position: center;
+    background-size: cover;
+
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+    }
+}

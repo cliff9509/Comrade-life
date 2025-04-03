@@ -1,0 +1,75 @@
+.chat-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.chat-box {
+    height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background: #f9f9f9;
+    text-align: left;
+}
+
+.user-message {
+    background: #007bff;
+    color: white;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    text-align: right;
+}
+
+.landlord-message {
+    background: #eee;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.input-box {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}

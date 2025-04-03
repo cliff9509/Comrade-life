@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental History</title>
+    <link rel="stylesheet" href="rental.css">
+</head>
+<body>
+
+    <div class="history-container">
+        <h2>Rental History</h2>
+
+        <!-- Search Bar -->
+        <input type="text" id="searchBar" onkeyup="searchHistory()" placeholder="Search rental history...">
+
+        <!-- Rental History Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>House</th>
+                    <th>Amount ($)</th>
+                    <th>Duration</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody id="rentalTable">
+                <tr>
+                    <td>Greenview Apartments</td>
+                    <td>800</td>
+                    <td>6 Months</td>
+                    <td>Jan 12, 2024</td>
+                </tr>
+                <tr>
+                    <td>Sunrise Villa</td>
+                    <td>1200</td>
+                    <td>1 Year</td>
+                    <td>Mar 5, 2023</td>
+                </tr>
+                <tr>
+                    <td>Oceanview Condo</td>
+                    <td>950</td>
+                    <td>6 Months</td>
+                    <td>Oct 20, 2022</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function searchHistory() {
+            let input = document.getElementById("searchBar").value.toLowerCase();
+            let rows = document.querySelectorAll("#rentalTable tr");
+
+            rows.forEach(row => {
+                let text = row.textContent.toLowerCase();
+                row.style.display = text.includes(input) ? "" : "none";
+            });
+        }
+    </script>
+
+</body>
+</html>

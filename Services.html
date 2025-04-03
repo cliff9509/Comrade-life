@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            display: flex;
+        }
+
+        .sidebar {
+            background-color: #007BFF;
+            color: white;
+            width: 250px;
+            height: 100vh;
+            padding: 1rem;
+            position: fixed;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            margin-left: 250px;
+            padding: 1rem;
+        }
+
+        header h1 {
+            margin-top: 0;
+        }
+
+        #search-bar {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            width: 80%;
+            max-width: 200px;
+        }
+
+        .filter-options {
+            margin: 1rem;
+            text-align: center;
+        }
+
+        #service-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 1rem;
+        }
+
+        .service {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 1rem;
+            padding: 1rem;
+            width: 300px;
+        }
+
+        .details-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .details-button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <header>
+            <h1>Comrade Life</h1>
+            <input type="text" id="search-bar" placeholder="Search services...">
+        </header>
+    </div>
+    <div class="main-content">
+        <main>
+            <div class="details" id="wifi-details">
+                <select id="service-type">
+                    <option value="all">All</option>
+                    <option value="laundry">Laundry</option>
+                    <option value="wifi">WiFi</option>
+                </select>
+            </div>
+            <div class="details" id="laundry-details"></div>
+                <div class="service">
+                    <h2>Laundry Services</h2>
+                    <p>Service: Wash and Fold For Each Laundry Basket</p>
+                    <p>Price: KES 350</p>
+                    <button class="details-button">View Details</button>
+                </div>
+                <div class="service">
+                    <h2>WiFi Services</h2>
+                    <p>Service: Basic WiFi</p>
+                    <p>Price: KES 1500/month</p>
+                    <button class="details-button">View Details</button>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2025 Real Estate Management System</p>
+        </footer>
+    </div>
+</body>
+</html>

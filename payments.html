@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="payments.css">
+</head>
+<body>
+
+    <div class="payment-container">
+        <h2>Make a Payment</h2>
+        <form id="paymentForm">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" required>
+
+            <label for="amount">Amount (Ksh)</label>
+            <input type="number" id="amount" required min="1">
+
+            <label for="paymentMethod">Payment Method</label>
+            <select id="paymentMethod" required>
+                <option value="card">Credit/Debit Card</option>
+                <option value="Mpesa">Mpesa</option>
+                <option value="Airtel">Airtel Money</option>
+                <option value="Equity">Equity</option>
+                <option value="Faulu">Faulu Bank</option>
+                <option value="Co-operative">Co-operative</option>
+                <option value="KCB">KCB</option>
+                <option value="Family">Family</option>
+                <option value="ABSA">ABSA</option>
+            </select>
+
+            <!-- Card Payment Details -->
+            <div id="cardDetails" class="hidden">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" id="cardNumber" placeholder="1234 5678 9101 1121" required>
+
+                <label for="expiry">Expiry Date</label>
+                <input type="date" id="expiry" required>
+
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" required maxlength="3">
+            </div>
+
+            <!-- Mobile Payment (Mpesa, Airtel) -->
+            <div id="mobilePayment" class="hidden">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" id="phoneNumber" placeholder="Enter mobile number" required>
+            </div>
+
+            <!-- Bank Payment -->
+            <div id="bankPayment" class="hidden">
+                <label for="accountNumber">Account Number</label>
+                <input type="text" id="accountNumber" placeholder="Enter bank account number" required>
+            </div>
+
+            <button type="submit">Pay Now</button>
+        </form>
+
+        <div id="paymentStatus" class="hide">
+            <p>Processing payment...</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("paymentMethod").addEventListener("change", function () {
+            let cardDetails = document.getElementById("cardDetails");
+            let mobilePayment = document.getElementById("mobilePayment");
+            let bankPayment = document.getElementById("bankPayment");
+
+            // Hide all fields initially
+            cardDetails.style.display = "none";
+            mobilePayment.style.display = "none";
+            bankPayment.style.display = "none";
+
+            // Show relevant fields based on selection
+            let selectedMethod = this.value;
+            if (selectedMethod === "card") {
+                cardDetails.style.display = "block";
+            } else if (selectedMethod === "Mpesa" || selectedMethod === "Airtel") {
+                mobilePayment.style.display = "block";
+            } else {
+                bankPayment.style.display = "block";
+            }
+        });
+
+        document.getElementById("paymentForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            
+            document.getElementById("paymentStatus").classList.remove("hidden");
+            document.getElementById("paymentStatus").innerHTML = "<p>Processing payment...</p>";
+
+            setTimeout(() => {
+                document.getElementById("paymentStatus").innerHTML = "<p style='color: green;'>Payment Successful!</p>";
+            }, 2000);
+        });
+    </script>
+
+</body>
+</html>

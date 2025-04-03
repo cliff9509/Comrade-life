@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landlord Chat</title>
+    <link rel="stylesheet" href="messages.css">
+</head>
+<body>
+
+    <div class="chat-container">
+        <h2>Chat with Landlord</h2>
+
+        <!-- Landlord Selection -->
+        <select id="landlordSelect" onchange="loadChat()">
+            <option value="landlord1">Landlord Ian</option>
+            <option value="landlord2">Landlord Cliff</option>
+            <option value="landlord3">Landlord Joel</option>
+            <option value="landlord4">Landlord Samuel</option>
+            <option value="landlord5">Landlord John</option>
+        </select>
+
+        <!-- Chat Messages -->
+        <div class="chat-box" id="chatBox"></div>
+
+        <!-- User Input -->
+        <div class="input-box">
+            <input type="text" id="userInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chats = {
+            landlord1: [
+                { sender: "Landlord Ian", message: "Hello, are you interested in the house?" }
+            ],
+            landlord2: [
+                { sender: "Landlord Cliff", message: "Hi! The house is available." }
+            ],
+            landlord3: [
+                { sender: "Landlord Joel", message: "Let me know if you need any details." }
+            ],
+            landlord4: [
+                { sender: "Landlord Samuel", message: "Hi! The house is available." }
+            ],
+            landlord5: [
+                { sender: "Landlord John", message: "Let me know if you need any details." }
+            ]
+        };
+
+        const landlordReplies = {
+            landlord1: "I can share more pictures if you're interested.",
+            landlord2: "The rent is $800 per month.",
+            landlord3: "Yes, the internet connection is very fast.",
+            landlord4: "The rent is $1200 per month.",
+            landlord5: "Yes, the house has fiber internet installed."
+        };
+
+        let currentLandlord = "landlord1";
+
+        function loadChat() {
+            currentLandlord = document.getElementById("landlordSelect").value;
+            displayChat();
+        }
+
+        function displayChat() {
+            const chatBox = document.getElementById("chatBox");
+            chatBox.innerHTML = ""; 
+
+            chats[currentLandlord].forEach(chat => {
+                let messageDiv = document.createElement("div");
+                messageDiv.classList.add(chat.sender === "You" ? "user-message" : "landlord-message");
+                messageDiv.textContent = `${chat.sender}: ${chat.message}`;
+                chatBox.appendChild(messageDiv);
+            });
+
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function sendMessage() {
+            let userInput = document.getElementById("userInput").value.trim();
+            if (userInput === "") return;
+
+            // Add user message to chat
+            chats[currentLandlord].push({ sender: "You", message: userInput });
+            displayChat();
+
+            // Simulate landlord response after a short delay
+            setTimeout(() => {
+                let reply = landlordReplies[currentLandlord];
+                chats[currentLandlord].push({ sender: getLandlordName(), message: reply });
+                displayChat();
+            }, 1000);
+
+            document.getElementById("userInput").value = "";
+        }
+
+        function getLandlordName() {
+            let select = document.getElementById("landlordSelect");
+            return select.options[select.selectedIndex].text;
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        }
+
+        // Load initial chat
+        loadChat();
+    </script>
+
+</body>
+</html>
